@@ -1,0 +1,14 @@
+{
+  "name": "mokepon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d src"
+  },
+  "author": "HANS DAVID MANOTAS SOTO",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "gh-pages": "^4.0.0"
+  }
+}
