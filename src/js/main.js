@@ -75,22 +75,25 @@ function attack(clicked) {
     let myPet = myPetNode.textContent;
     let enemyPet = hisPetNode.textContent;
     let result;
-    let wins = 0;
-    let loses = 0;
-    let draws = 0;
+    let wins = Number(localStorage.getItem("win"));
+    let loses = Number(localStorage.getItem("lose"));
+    let draws = Number(localStorage.getItem("draw"));
     if (
       (playerAttack == "Fire🔥" && enemyAttack == "Earth🌱") ||
       (playerAttack == "Water💦" && enemyAttack == "Fire🔥") ||
       (playerAttack == "Earth🌱" && enemyAttack == "Water💦")
     ) {
       result = "You Win";
-      wins++;
+      wins = 1 + wins;
+      localStorage.setItem("win", wins);
     } else if (playerAttack == enemyAttack) {
       result = "You Draw";
-      draws++;
+      draws = 1 + draws;
+      localStorage.setItem("draw", draws);
     } else {
       result = "You Lose";
-      loses++;
+      loses = 1 + loses;
+      localStorage.setItem("lose", loses);
     }
     let newResult = `Your ${myPet} attacked with ${playerAttack} and the enemy chose ${enemyPet} and counterattack with ${enemyAttack}, ${result}`;
     let mensajes = document.getElementById("mensajes");
