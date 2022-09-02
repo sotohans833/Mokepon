@@ -11,9 +11,15 @@ function startGame() {
   let buttonEarth = document.getElementById("button-earth");
   buttonEarth.addEventListener("click", () => attack(buttonEarth));
   let buttonReset = document.getElementById("button-reset");
+  buttonReset.addEventListener("click", () => resetData());
+  let chooseAttackSection = document.getElementById("choose-attack");
+  chooseAttackSection.style.display = "none";
+  let messages = document.getElementById("messages");
+  messages.style.display = "none";
+  buttonReset.style.display = "none"
+  let hipodoge = document.getElementById("hipodoge-label");
+  hipodoge.addEventListener("click", sound)
 }
-window.addEventListener("load", startGame);
-
 function choosePet() {
   let hipodoge = document.getElementById("Hipodoge");
   let Capipepo = document.getElementById("Capipepo");
@@ -22,18 +28,32 @@ function choosePet() {
   let Tucapalma = document.getElementById("Tucapalma");
   let Pydos = document.getElementById("Pydos");
   let ownPet = document.getElementById("own-pet");
+  let AttackSection = document.getElementById("choose-attack");
+  let chooseSection = document.getElementById("choose-pet");
   if (hipodoge.checked) {
     ownPet.innerHTML = "Hipodoge";
+    AttackSection.style.display = "block";
+    chooseSection.style.display = "none";
   } else if (Capipepo.checked) {
     ownPet.innerHTML = "Capipepo";
+    AttackSection.style.display = "block";
+    chooseSection.style.display = "none";
   } else if (Ratigueya.checked) {
     ownPet.innerHTML = "Ratigueya";
+    AttackSection.style.display = "block";
+    chooseSection.style.display = "none";
   } else if (Langostelvis.checked) {
     ownPet.innerHTML = "Langostelvis";
+    AttackSection.style.display = "block";
+    chooseSection.style.display = "none";
   } else if (Tucapalma.checked) {
     ownPet.innerHTML = "Tucapalma";
+    AttackSection.style.display = "block";
+    chooseSection.style.display = "none";
   } else if (Pydos.checked) {
     ownPet.innerHTML = "Pydos";
+    AttackSection.style.display = "block";
+    chooseSection.style.display = "none";
   } else {
     alert("No choice, please choose one pet");
   }
@@ -60,6 +80,10 @@ function random(min, max) {
 function attack(clicked) {
   let myPetNode = document.getElementById("own-pet");
   let hisPetNode = document.getElementById("enemy-pet");
+  let enemyLive = document.getElementById("enemy-lives");
+  let petLive = document.getElementById("pet-lives");
+  let enemyLives = enemyLive.textContent;
+  let petLives = petLive.textContent;
   if (myPetNode.textContent == "(Your choice)") {
     alert("No choice, please choose one pet");
   } else {
@@ -86,6 +110,7 @@ function attack(clicked) {
       result = "You Win";
       wins = 1 + wins;
       localStorage.setItem("win", wins);
+      enemyLives--;
     } else if (playerAttack == enemyAttack) {
       result = "You Draw";
       draws = 1 + draws;
@@ -94,14 +119,68 @@ function attack(clicked) {
       result = "You Lose";
       loses = 1 + loses;
       localStorage.setItem("lose", loses);
+      petLives--;
     }
     let newResult = `Your ${myPet} attacked with ${playerAttack} and the enemy chose ${enemyPet} and counterattack with ${enemyAttack}, ${result}`;
-    let mensajes = document.getElementById("mensajes");
+    let mensajes = document.getElementById("messages");
     let newP = document.createElement("p");
     newP.innerHTML = newResult;
     mensajes.appendChild(newP);
     let accumulate = document.getElementById("accumulate");
     accumulate.innerHTML = `You won ${wins} times lost ${loses} times and draw ${draws} times`;
+    enemyLive.innerHTML = enemyLives;
+    petLive.innerHTML = petLives;
+    showMessages(wins, loses, draws);
+    endOfGame(petLives, enemyLives);
   }
   choosePet();
 }
+
+function resetData(){
+  localStorage.setItem("win", 0);
+  localStorage.setItem("draw", 0);
+  localStorage.setItem("lose", 0);
+  let wins = Number(localStorage.getItem("win"));
+  let loses = Number(localStorage.getItem("lose"));
+  let draws = Number(localStorage.getItem("draw"));
+  let accumulate = document.getElementById("accumulate");
+  accumulate.innerHTML = `You won ${wins} times lost ${loses} times and draw ${draws} times`;
+  window.location.reload();
+}
+
+function endOfGame(myself, enemy){
+  let buttonFire = document.getElementById("button-fire");
+  let buttonWater = document.getElementById("button-water");
+  let buttonEarth = document.getElementById("button-earth");
+  let buttonReset = document.getElementById("button-reset");
+  if(enemy == 0){
+    buttonReset.style.display = "block"
+    buttonFire.disabled = true;
+    buttonWater.disabled = true;
+    buttonEarth.disabled = true;
+    setTimeout(function message() {
+      alert("You win 🥇🥳, tab enter or click on accept to restart game");
+      resetData();
+    }, 5800);
+  }else if(myself == 0){
+    buttonReset.style.display = "block";
+    buttonFire.disabled = true;
+    buttonWater.disabled = true;
+    buttonEarth.disabled = true;
+    setTimeout(function message(){
+      alert("So Sorry, You Lost 😵😶‍🌫️, tab enter or click on accept to restart game");
+      resetData();}, 5800);
+  }
+}
+function showMessages(w, l, d) {
+  if (w != 0 || l != 0 || d != 0) {
+    let messages = document.getElementById("messages");
+    messages.style.display = "block";
+  }
+}
+function sound(){
+  let audioElement = document.getElementById("audio");
+  audioElement.play();
+  console.log("por fin");
+}
+window.addEventListener("load", startGame);

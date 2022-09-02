@@ -6,44 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monkepon</title>
     <script src="./js/main.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <h1>MOKEPON 🔥💦🌱</h1>
-
     <section id="choose-pet">
+        <h1 class="title" id="title-id">MOKEPON 🔥💦🌱</h1>
         <h2>Choose your pet</h2>
-        <label for="Hipodoge">Hipodoge</label>
-        <input type="radio" name="pet" id="Hipodoge">
-        <label for="Capipepo">Capipepo</label>
-        <input type="radio" name="pet" id="Capipepo">
-        <label for="Ratigueya">Ratigueya</label>
-        <input type="radio" name="pet" id="Ratigueya">
-        <label for="Langostelvis">Langostelvis</label>
-        <input type="radio" name="pet" id="Langostelvis">
-        <label for="Tucapalma">Tucapalma</label>
-        <input type="radio" name="pet" id="Tucapalma">
-        <label for="Pydos">Pydos</label>
-        <input type="radio" name="pet" id="Pydos">
-        <button id="button-pet">Choose</button>
+        <div class="targets">
+            <label for="Hipodoge" id="hipodoge-label">
+                <p>Hipodoge</p>
+                <img src="./assets/Toad_super_mario (1).png" alt="Hipodoge">
+                <audio id="audio" controls>
+                    <source type="audio/mpeg" src="./assets/sounds/test.mp3">
+                </audio>
+            </label>
+            <input type="radio" name="pet" id="Hipodoge">
+            <label for="Capipepo">
+                <p>Capipepo</p>
+                <img src="./assets/NSMBUD_Bowser.png" alt="Capipepo">
+            </label>
+            <input type="radio" name="pet" id="Capipepo">
+            <label for="Ratigueya">
+                <p>Ratigueya</p>
+                <img src="./assets/Luigi.png" alt="Ratigueya">
+            </label>
+            <input type="radio" name="pet" id="Ratigueya">
+            <label for="Langostelvis">
+                <p>Langostelvis</p>
+                <img src="./assets/Daisy_Super_Mario_Party.png" alt="Langostelvis">
+            </label>
+            <input type="radio" name="pet" id="Langostelvis">
+            <label for="Tucapalma">
+                <p>Tucapalma</p>
+                <img src="./assets/SMO_Art_-_Mario.png" alt="Tucapalma">
+            </label>
+            <input type="radio" name="pet" id="Tucapalma">
+            <label for="Pydos">
+                <p>Pydos</p>
+                <img src="./assets/Boo29.png" alt="Pydos">
+            </label>
+            <input type="radio" name="pet" id="Pydos">
+        </div>
+        <button id="button-pet">Confirm</button>
     </section>
 
     <section id="choose-attack">
+        <h1 class="title" id="title-id">MOKEPON 🔥💦🌱</h1>
         <h2>Choose your attack</h2>
-        <p>Your chosen pet: <span id="own-pet">(Your choice)</span> has <span id="pet-lives">3</span> lives</p>
-        <p>Your enemy chose: <span id="enemy-pet">(Its choice)</span> and it has <span id="enemy-lives">3</span> lives</p>
-        <p>
+        <div>
             <button id="button-fire">Fire🔥</button>
             <button id="button-water">Water💦</button>
             <button id="button-earth">Earth🌱</button>
-        </p>
-    </section>
+        </div>
 
-    <section id="mensajes">
-        <p id="accumulate">You won <span id="win">0 times </span>lost <span id="lose"> 0 times</span> and draw <span id="draw"> 0 times</span></p>
-    </section>
+        <div>
+            <section id="messages">
+            <p id="accumulate">You won <span id="win">0 times </span>lost <span id="lose"> 0 times</span> and draw <span
+                    id="draw"> 0 times</span></p>
+            </section>
 
-    <section id="reset">
-        <button id="button-reset">Reset 🈯</button>
+            <section id="reset">
+            <button id="button-reset">Reset 🈯</button>
+            </section>
+        </div>
+        <div>
+            <p>Your chosen pet: <span id="own-pet">(Your choice)</span> has <span id="pet-lives">3</span> lives</p>
+            <p>Your enemy chose: <span id="enemy-pet">(Its choice)</span> and it has <span id="enemy-lives">3</span> lives</p>
+        </div>
     </section>
 </body>
 </html>
