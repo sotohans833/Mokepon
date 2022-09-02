@@ -2,23 +2,40 @@ let playerAttack;
 let enemyAttack;
 
 function startGame() {
+  let fireSpan = document.getElementById("span-fire");
+  fireSpan.style.display = "none";
+  let spanWater = document.getElementById("span-water");
+  spanWater.style.display = "none";
+  let spanEarth = document.getElementById("span-earth");
+  spanEarth.style.display = "none";
   let buttonPet = document.getElementById("button-pet");
   buttonPet.addEventListener("click", choosePet);
   let buttonFire = document.getElementById("button-fire");
-  buttonFire.addEventListener("click", () => attack(buttonFire));
+  buttonFire.addEventListener("click", () => attack(fireSpan));
   let buttonWater = document.getElementById("button-water");
-  buttonWater.addEventListener("click", () => attack(buttonWater));
+  buttonWater.addEventListener("click", () => attack(spanWater));
   let buttonEarth = document.getElementById("button-earth");
-  buttonEarth.addEventListener("click", () => attack(buttonEarth));
+  buttonEarth.addEventListener("click", () => attack(spanEarth));
   let buttonReset = document.getElementById("button-reset");
   buttonReset.addEventListener("click", () => resetData());
   let chooseAttackSection = document.getElementById("choose-attack");
-  chooseAttackSection.style.display = "none";
+  // chooseAttackSection.style.display = "none";
   let messages = document.getElementById("messages");
-  messages.style.display = "none";
-  buttonReset.style.display = "none"
+  // messages.style.display = "none";
+  // buttonReset.style.display = "none"
   let hipodoge = document.getElementById("hipodoge-label");
-  hipodoge.addEventListener("click", sound)
+  hipodoge.addEventListener("click", () => sound("audio-hipodoge"));
+  let capipepo = document.getElementById("capipepo-label");
+  capipepo.addEventListener("click", () => sound("audio-capipepo"));
+  let ratigueya = document.getElementById("ratigueya-label");
+  ratigueya.addEventListener("click", () => sound("audio-ratigueya"));
+  let langostelvis = document.getElementById("langostelvis-label");
+  langostelvis.addEventListener("click", () => sound("audio-langostelvis"));
+  let tucapalma = document.getElementById("tucapalma-label");
+  tucapalma.addEventListener("click", () => sound("audio-tucapalma"));
+  let pydos = document.getElementById("pydos-label");
+  pydos.addEventListener("click", () => sound("audio-pydos"));
+  // pydos.addEventListener("click", display)
 }
 function choosePet() {
   let hipodoge = document.getElementById("Hipodoge");
@@ -32,27 +49,27 @@ function choosePet() {
   let chooseSection = document.getElementById("choose-pet");
   if (hipodoge.checked) {
     ownPet.innerHTML = "Hipodoge";
-    AttackSection.style.display = "block";
+    AttackSection.style.display = "flex";
     chooseSection.style.display = "none";
   } else if (Capipepo.checked) {
     ownPet.innerHTML = "Capipepo";
-    AttackSection.style.display = "block";
+    AttackSection.style.display = "flex";
     chooseSection.style.display = "none";
   } else if (Ratigueya.checked) {
     ownPet.innerHTML = "Ratigueya";
-    AttackSection.style.display = "block";
+    AttackSection.style.display = "flex";
     chooseSection.style.display = "none";
   } else if (Langostelvis.checked) {
     ownPet.innerHTML = "Langostelvis";
-    AttackSection.style.display = "block";
+    AttackSection.style.display = "flex";
     chooseSection.style.display = "none";
   } else if (Tucapalma.checked) {
     ownPet.innerHTML = "Tucapalma";
-    AttackSection.style.display = "block";
+    AttackSection.style.display = "flex";
     chooseSection.style.display = "none";
   } else if (Pydos.checked) {
     ownPet.innerHTML = "Pydos";
-    AttackSection.style.display = "block";
+    AttackSection.style.display = "flex";
     chooseSection.style.display = "none";
   } else {
     alert("No choice, please choose one pet");
@@ -178,9 +195,13 @@ function showMessages(w, l, d) {
     messages.style.display = "block";
   }
 }
-function sound(){
-  let audioElement = document.getElementById("audio");
+function sound(id){
+  let audioElement = document.getElementById(id);
   audioElement.play();
-  console.log("por fin");
+  background();
+}
+function background() {
+  let buttonPet = document.getElementById("button-pet");
+  buttonPet.style.backgroundColor = "#FF0000";
 }
 window.addEventListener("load", startGame);
