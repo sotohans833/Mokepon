@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300&display=swap');
 body{
+    width: auto;
     box-sizing: border-box;
-    height: 97vh;
+    height: fit-content;
     background-color: #000000;
     color: #950101;
     font-family: 'Fredoka One', cursive;
@@ -13,16 +14,17 @@ body{
 #title-container {
     display: flex;
     flex-direction: row;
-    width: 500px;
     justify-content: space-around;
+    width: -webkit-fill-available;
+    max-width: 55%;
     align-items: center;
     padding-bottom: 10px;
     border-bottom: 2px solid #3D0000;
     max-height: 20px;
 }
 #title-container img{
-    width: 70px;
-    height: 40px;
+    width: auto;
+    height: 30px;
     object-fit: contain;
     margin-bottom: 10px;
 }
@@ -37,7 +39,7 @@ body{
 #choose-pet{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 700px;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -69,10 +71,13 @@ label:hover{
 label:active{
     background-color: transparent;
 }
+.targets img:checked{
+    background-color: #FF0000;
+}
 
 .targets img{
-    width: 80px;
-    height: fit-content;
+    width: auto;
+    height: 110%;
     max-height: 90px;
     z-index: 1;
     object-fit: scale-down;
@@ -106,8 +111,14 @@ input{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 97%;
+    height: 700px;
     align-items: center;
+    width: auto;
+}
+#powers {
+    display: flex;
+    width: 550px;
+    justify-content: space-around;
 }
 
 button img{
@@ -118,4 +129,59 @@ button img{
 
 #button-reset{
     color: rgb(214, 230, 224);
+    display: none;
+}
+
+#messages{
+    flex-direction: column;
+    align-items: center;
+}
+
+#chosen{
+    display: grid;
+    grid-template-columns: 150px 150px;
+    align-items: center;
+    gap: 30px;
+}
+
+#chosen div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#messages p{
+    text-align: center;
+}
+
+@media(max-width: 420px){
+    label{
+        height: 45px;
+    }
+    .targets {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #choose-pet{
+        height: 100vh;
+        min-width: 320px;
+        justify-content: start;
+        margin-top: 25px;
+    }
+    #title-container {
+        justify-content: center;
+        gap: 8px;
+    }
+    .banana{
+        display: none;
+    }
+    #green-shell{
+        display: none;
+    }
+    #powers{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
 }

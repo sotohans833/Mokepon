@@ -12,9 +12,10 @@
     <section id="choose-pet">
         <div id="title-container">
             <img src="./assets/powers/Estrella_Artwork_.png" alt="Estrella_Artwork_">
+            <img src="./assets/powers/800px-MKT_Icon_Giant_Banana.png" class="banana" alt="800px-MKT_Icon_Giant_Banana">
             <h1 class="title" id="title-id">MOKEPON</h1>
-            <img src="./assets/powers/800px-MKT_Icon_Giant_Banana.png" alt="800px-MKT_Icon_Giant_Banana">
-            <img src="./assets/powers/GreenShell_-_MarioPartyStarRush.png" alt="GreenShell_-_MarioPartyStarRush">
+            <img src="./assets/powers/GreenShell_-_MarioPartyStarRush.png" alt="GreenShell_-_MarioPartyStarRush" id="green-shell">
+            <img src="./assets/powers/Estrella_Artwork_.png" alt="Estrella_Artwork_">
         </div>
         <h2>Choose your pet</h2>
         <div class="targets">
@@ -78,7 +79,7 @@
             <!-- <img src="./assets/powers/GreenShell_-_MarioPartyStarRush.png" alt="GreenShell_-_MarioPartyStarRush"> -->
         </div>
         <h2>Choose your attack</h2>
-        <div>
+        <div id="powers">
             <button id="button-fire">
                 <span id="span-fire">Fire🔥</span>
                 <img src="./assets/powers/Bob-ombNSMBU.png" alt="Bob-ombNSMBU">
@@ -93,18 +94,37 @@
             </button>
         </div>
 
-        <div>
-            <section id="messages">
-            <p id="accumulate">You won <span id="win">0 times </span>lost <span id="lose"> 0 times</span> and draw <span
-                    id="draw"> 0 times</span></p>
-            </section>
-        </div>
+        <section id="messages">
+            <p id="live-attack"></p>
+            <p id="accumulate">
+                You won
+                <span id="win">0 times </span>
+                lost
+                <span id="lose"> 0 times</span>
+                and draw
+                <span id="draw"> 0 times</span>
+            </p>
+        </section>
         <section id="reset">
             <button id="button-reset">Reset 🈯</button>
         </section>
-        <div>
-            <p>Your chosen pet: <span id="own-pet">(Your choice)</span> has <span id="pet-lives">3</span> lives</p>
-            <p>Your enemy chose: <span id="enemy-pet">(Its choice)</span> and it has <span id="enemy-lives">3</span> lives</p>
+        <div id="chosen">
+            <div>
+                <p>
+                    <span id="pet-lives">3</span>
+                    lives
+                </p>
+                <span id="own-pet">(Your choice)</span>
+                <div id="my-powers">water</div>
+            </div>
+            <div>
+                <p>
+                    <span id="enemy-lives">3</span>
+                    lives
+                </p>
+                <span id="enemy-pet">(Its choice)</span>
+                <div id="enemy-powers">water</div>
+            </div>
         </div>
     </section>
 </body>
