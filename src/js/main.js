@@ -19,10 +19,9 @@ function startGame() {
   let buttonReset = document.getElementById("button-reset");
   buttonReset.addEventListener("click", () => resetData());
   let chooseAttackSection = document.getElementById("choose-attack");
-  // chooseAttackSection.style.display = "none";
+  chooseAttackSection.style.display = "none";
   let messages = document.getElementById("messages");
-  // messages.style.display = "none";
-  // buttonReset.style.display = "none"
+  messages.style.display = "none";
   let hipodoge = document.getElementById("hipodoge-label");
   hipodoge.addEventListener("click", () => sound("audio-hipodoge"));
   let capipepo = document.getElementById("capipepo-label");
@@ -35,7 +34,6 @@ function startGame() {
   tucapalma.addEventListener("click", () => sound("audio-tucapalma"));
   let pydos = document.getElementById("pydos-label");
   pydos.addEventListener("click", () => sound("audio-pydos"));
-  // pydos.addEventListener("click", display)
 }
 function choosePet() {
   let hipodoge = document.getElementById("Hipodoge");
@@ -139,10 +137,8 @@ function attack(clicked) {
       petLives--;
     }
     let newResult = `Your ${myPet} attacked with ${playerAttack} and the enemy chose ${enemyPet} and counterattack with ${enemyAttack}, ${result}`;
-    let mensajes = document.getElementById("messages");
-    let newP = document.createElement("p");
-    newP.innerHTML = newResult;
-    mensajes.appendChild(newP);
+    let mensajes = document.getElementById("live-attack");
+    mensajes.innerHTML = newResult;
     let accumulate = document.getElementById("accumulate");
     accumulate.innerHTML = `You won ${wins} times lost ${loses} times and draw ${draws} times`;
     enemyLive.innerHTML = enemyLives;
@@ -192,7 +188,7 @@ function endOfGame(myself, enemy){
 function showMessages(w, l, d) {
   if (w != 0 || l != 0 || d != 0) {
     let messages = document.getElementById("messages");
-    messages.style.display = "block";
+    messages.style.display = "flex";
   }
 }
 function sound(id){
