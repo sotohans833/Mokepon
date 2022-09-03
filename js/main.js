@@ -19,7 +19,7 @@ function startGame() {
   let buttonReset = document.getElementById("button-reset");
   buttonReset.addEventListener("click", () => resetData());
   let chooseAttackSection = document.getElementById("choose-attack");
-  // chooseAttackSection.style.display = "none";
+  chooseAttackSection.style.display = "none";
   let messages = document.getElementById("messages");
   messages.style.display = "none";
   let hipodoge = document.getElementById("hipodoge-label");
