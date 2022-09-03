@@ -2,6 +2,7 @@
 body{
     width: auto;
     box-sizing: border-box;
+    margin: 0px;
     height: fit-content;
     background-color: #000000;
     color: #950101;
@@ -37,7 +38,7 @@ body{
 }
 
 #choose-pet{
-    display: flex;
+    display: none;
     flex-direction: column;
     height: 700px;
     justify-content: center;
@@ -46,7 +47,7 @@ body{
 }
 .targets {
     gap: 10px;
-    width: 600px;
+    max-width: 50%;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -117,12 +118,12 @@ input{
 }
 #powers {
     display: flex;
-    width: 550px;
+    width: 50%;
     justify-content: space-around;
 }
 
 button img{
-    width: 90px;
+    width: auto;
     height: 60px;
     object-fit: contain;
 }
@@ -141,7 +142,7 @@ button img{
     display: grid;
     grid-template-columns: 150px 150px;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 #chosen div{
@@ -182,6 +183,9 @@ button img{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 25px;
+        gap: 20px;
+    }
+    #powers img{
+        height: 40px;
     }
 }
