@@ -19,6 +19,7 @@
         </div>
         <h2>Choose your pet</h2>
         <div class="targets">
+            <input type="radio" name="pet" id="Hipodoge">
             <label for="Hipodoge" id="hipodoge-label">
                 <p>Hipodoge</p>
                 <img src="./assets/characters/Toad_super_mario (1).png" alt="Hipodoge">
@@ -26,7 +27,7 @@
                     <source type="audio/mpeg" src="./assets/sounds/hipodoge.mp3">
                 </audio>
             </label>
-            <input type="radio" name="pet" id="Hipodoge">
+            <input type="radio" name="pet" id="Capipepo">
             <label for="Capipepo" id="capipepo-label">
                 <p>Capipepo</p>
                 <img src="./assets/characters/NSMBUD_Bowser.png" alt="Capipepo">
@@ -34,7 +35,7 @@
                     <source type="audio/mpeg" src="./assets/sounds/capipepo.mp3">
                 </audio>
             </label>
-            <input type="radio" name="pet" id="Capipepo">
+            <input type="radio" name="pet" id="Ratigueya">
             <label for="Ratigueya" id="ratigueya-label">
                 <p>Ratigueya</p>
                 <img src="./assets/characters/Luigi.png" alt="Ratigueya">
@@ -42,7 +43,7 @@
                     <source type="audio/mpeg" src="./assets/sounds/ratigueya.mp3">
                 </audio>
             </label>
-            <input type="radio" name="pet" id="Ratigueya">
+            <input type="radio" name="pet" id="Langostelvis">
             <label for="Langostelvis" id="langostelvis-label">
                 <p>Langostelvis</p>
                 <img src="./assets/characters/Daisy_Super_Mario_Party.png" alt="Langostelvis">
@@ -50,7 +51,7 @@
                     <source type="audio/mpeg" src="./assets/sounds/langostelvis.mp3">
                 </audio>
             </label>
-            <input type="radio" name="pet" id="Langostelvis">
+            <input type="radio" name="pet" id="Tucapalma">
             <label for="Tucapalma" id="tucapalma-label">
                 <p>Tucapalma</p>
                 <img src="./assets/characters/SMO_Art_-_Mario.png" alt="Tucapalma">
@@ -58,7 +59,7 @@
                     <source type="audio/mpeg" src="./assets/sounds/tucapalma.mp3">
                 </audio>
             </label>
-            <input type="radio" name="pet" id="Tucapalma">
+            <input type="radio" name="pet" id="Pydos">
             <label for="Pydos" id="pydos-label">
                 <p>Pydos</p>
                 <img src="./assets/characters/Boo29.png" alt="Pydos">
@@ -66,7 +67,6 @@
                     <source type="audio/mpeg" src="./assets/sounds/pydos.mp3">
                 </audio>
             </label>
-            <input type="radio" name="pet" id="Pydos">
         </div>
         <button id="button-pet">Confirm</button>
     </section>
@@ -76,20 +76,19 @@
             <img src="./assets/powers/Fire_Flower.png" alt="Fire_Flower">
             <h1 class="title" id="title-id">MOKEPON</h1>
             <img src="./assets/powers/Goomba_Hat_Artwork_-_Super_Mario_3D_World.png" alt="goomba">
-            <!-- <img src="./assets/powers/GreenShell_-_MarioPartyStarRush.png" alt="GreenShell_-_MarioPartyStarRush"> -->
         </div>
         <h2>Choose your attack</h2>
         <div id="powers">
             <button id="button-fire">
-                <span id="span-fire">Fire🔥</span>
+                <span id="span-fire">Bomb 💣</span>
                 <img src="./assets/powers/Bob-ombNSMBU.png" alt="Bob-ombNSMBU">
             </button>
             <button id="button-water">
-                <span id="span-water">Water💦</span>
+                <span id="span-water">Mushroom 🍄</span>
                 <img src="./assets/powers/Champi.png" alt="Champi">
             </button>
             <button id="button-earth">
-                <span id="span-earth">Earth🌱</span>
+                <span id="span-earth">Shell 🐢</span>
                 <img src="./assets/powers/1200px-RedShellMK8.png" alt="1200px-RedShellMK8">
             </button>
         </div>
@@ -105,25 +104,19 @@
                 <span id="draw"> 0 times</span>
             </p>
         </section>
-        <section id="reset">
-            <button id="button-reset">Reset 🈯</button>
-        </section>
+        <button id="button-reset">
+            <img src="./assets/buttons/Reset_button.svg" alt="">
+        </button>
         <div id="chosen">
             <div>
-                <p>
-                    <span id="pet-lives">3</span>
-                    lives
-                </p>
+                <span id="pet-lives">3</span>
                 <span id="own-pet">(Your choice)</span>
-                <div id="my-powers">water</div>
+                <div id="my-powers">Attack</div>
             </div>
             <div>
-                <p>
-                    <span id="enemy-lives">3</span>
-                    lives
-                </p>
+                <span id="enemy-lives">3</span>
                 <span id="enemy-pet">(Its choice)</span>
-                <div id="enemy-powers">water</div>
+                <div id="enemy-powers">CounterAttack</div>
             </div>
         </div>
     </section>

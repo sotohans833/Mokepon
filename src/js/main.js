@@ -94,7 +94,6 @@ function random(min, max) {
 }
 function attack(clicked) {
   let myPetNode = document.getElementById("own-pet");
-  let hisPetNode = document.getElementById("enemy-pet");
   let enemyLive = document.getElementById("enemy-lives");
   let petLive = document.getElementById("pet-lives");
   let enemyLives = enemyLive.textContent;
@@ -105,40 +104,42 @@ function attack(clicked) {
     playerAttack = clicked.textContent;
     let randomAttack = random(1, 3);
     if (randomAttack == 1) {
-      enemyAttack = "Fire🔥";
+      enemyAttack = "Bomb 💣";
     } else if (randomAttack == 2) {
-      enemyAttack = "Water💦";
+      enemyAttack = "Mushroom 🍄";
     } else if (randomAttack == 3) {
-      enemyAttack = "Earth🌱";
+      enemyAttack = "Shell 🐢";
     }
-    let myPet = myPetNode.textContent;
-    let enemyPet = hisPetNode.textContent;
     let result;
     let wins = Number(localStorage.getItem("win"));
     let loses = Number(localStorage.getItem("lose"));
     let draws = Number(localStorage.getItem("draw"));
     if (
-      (playerAttack == "Fire🔥" && enemyAttack == "Earth🌱") ||
-      (playerAttack == "Water💦" && enemyAttack == "Fire🔥") ||
-      (playerAttack == "Earth🌱" && enemyAttack == "Water💦")
+      (playerAttack == "Bomb 💣" && enemyAttack == "Shell 🐢") ||
+      (playerAttack == "Mushroom 🍄" && enemyAttack == "Bomb 💣") ||
+      (playerAttack == "Shell 🐢" && enemyAttack == "Mushroom 🍄")
     ) {
-      result = "You Win";
+      result = "Win";
       wins = 1 + wins;
       localStorage.setItem("win", wins);
       enemyLives--;
     } else if (playerAttack == enemyAttack) {
-      result = "You Draw";
+      result = "Draw";
       draws = 1 + draws;
       localStorage.setItem("draw", draws);
     } else {
-      result = "You Lose";
+      result = "Lose";
       loses = 1 + loses;
       localStorage.setItem("lose", loses);
       petLives--;
     }
-    let newResult = `Your ${myPet} attacked with ${playerAttack} and the enemy chose ${enemyPet} and counterattack with ${enemyAttack}, ${result}`;
+    let newResult = `You ${result}`;
     let mensajes = document.getElementById("live-attack");
     mensajes.innerHTML = newResult;
+    let myPower = document.getElementById("my-powers");
+    let enemyPower = document.getElementById("enemy-powers");
+    myPower.innerHTML = playerAttack;
+    enemyPower.innerHTML = enemyAttack;
     let accumulate = document.getElementById("accumulate");
     accumulate.innerHTML = `You won ${wins} times lost ${loses} times and draw ${draws} times`;
     enemyLive.innerHTML = enemyLives;
@@ -199,5 +200,8 @@ function sound(id){
 function background() {
   let buttonPet = document.getElementById("button-pet");
   buttonPet.style.backgroundColor = "#FF0000";
+  buttonPet.style.fontFamily = "Fredoka One";
+  buttonPet.style.color = "black";
+  buttonPet.style.fontSize = "16px";
 }
 window.addEventListener("load", startGame);

@@ -72,10 +72,9 @@ label:hover{
 label:active{
     background-color: transparent;
 }
-.targets img:checked{
+input:checked + label {
     background-color: #FF0000;
 }
-
 .targets img{
     width: auto;
     height: 110%;
@@ -90,7 +89,7 @@ input{
     display: none;
 }
 #button-pet{
-    width: 80px;
+    width: 100px;
     height: 40px;
     background-color:transparent;
     padding: 10px;
@@ -101,6 +100,7 @@ input{
     cursor: pointer;
     color: rgb(214, 230, 224);
     font-family: 'Poppins', sans-serif;
+    text-align: center;
 }
 #choose-attack button{
     background-color: transparent;
@@ -131,6 +131,14 @@ button img{
 #button-reset{
     color: rgb(214, 230, 224);
     display: none;
+    width: auto;
+    height: 50px;
+    margin: 5px;
+}
+#button-reset img{
+    filter: invert(1);
+    width: 100%;
+    height: 40px;
 }
 
 #messages{
@@ -145,13 +153,33 @@ button img{
     gap: 20px;
 }
 
-#chosen div{
+#chosen > div{
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 2px solid #3d0000;
+    padding: 15px;
+    border-radius: 20px;
 }
 #messages p{
     text-align: center;
+}
+#pet-lives, #enemy-lives{
+    height: 50px;
+    font-size: 50px;
+    color: #d6e6e0;
+    margin: 20px;
+}
+#own-pet, #enemy-pet{
+    margin: 5px;
+    font-size: 20px;
+    border: #d6e6e0 solid 1px;
+    padding: 10px;
+    border-radius: 30px;
+}
+#my-powers, #enemy-powers{
+    color:#d6e6e0;
+    height: 30px;
 }
 
 @media(max-width: 420px){
